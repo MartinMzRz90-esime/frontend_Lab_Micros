@@ -12,7 +12,7 @@ const mockUsuario = {
   nombreCompleto: "Daniela Hernández López",
   boleta: "2026630148",
   correo: "daniela.hl@alumno.ipn.mx",
-  estado: "Suspendida",
+  estado: "Activa",
   motivoSancion: "El osciloscopio DS1054Z-2023-000219 se devolvió con una sonda dañada.",
 };
 
