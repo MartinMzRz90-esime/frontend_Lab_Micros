@@ -1,0 +1,724 @@
+/* ==========================================================
+   alumno.css - Estilos del portal del alumno
+   Depende de: global.css
+   ========================================================== */
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Navegación del alumno ---------- */
+.nav-alumno {
+  background: var(--ipn-vino-oscuro);
+}
+
+.nav-alumno__lista {
+  list-style: none;
+  max-width: 480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.nav-alumno__enlace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  min-height: 64px;
+  padding: 0.7rem 0.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--texto-xs);
+  line-height: 1.15;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.nav-alumno__enlace svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-alumno__enlace:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-alumno__enlace.activo {
+  background: var(--blanco);
+  color: var(--ipn-vino);
+  font-weight: 700;
+}
+
+/* Variante: barra fija en la parte inferior */
+.nav-alumno--inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+/* ---------- Contenedor principal ---------- */
+.portal {
+  flex: 1;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 2rem;
+}
+
+.portal__barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.portal__etiqueta {
+  font-size: var(--texto-xs);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ipn-vino);
+}
+
+.btn-texto {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  color: var(--ipn-vino);
+}
+
+.btn-texto svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-texto:hover {
+  text-decoration: underline;
+}
+
+.portal__titulo {
+  font-size: var(--texto-xl);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.portal__subtitulo {
+  color: var(--gris-500);
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Tarjeta de estado de cuenta ---------- */
+.estado-cuenta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--blanco);
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.estado-cuenta__titulo {
+  font-size: var(--texto-sm);
+  color: var(--gris-700);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: var(--texto-xs);
+  font-weight: 700;
+}
+
+.badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge--activa {
+  background: var(--verde-claro);
+  color: var(--verde);
+}
+
+.badge--suspendida {
+  background: var(--ambar-claro);
+  color: var(--ambar);
+}
+
+.badge--bloqueada {
+  background: var(--rojo-claro);
+  color: var(--rojo);
+}
+
+/* ---------- Buscador ---------- */
+.buscador__caja {
+  position: relative;
+}
+
+.buscador__caja svg {
+  position: absolute;
+  top: 50%;
+  left: 0.8rem;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  color: var(--gris-500);
+  pointer-events: none;
+}
+
+.buscador__caja input {
+  padding-left: 2.5rem;
+}
+
+/* ---------- Secciones ---------- */
+.seccion__encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.seccion__titulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.seccion__contador {
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+}
+
+.seccion__fecha {
+  font-size: var(--texto-sm);
+  color: var(--gris-500);
+  margin: 0.2rem 0 0.75rem;
+}
+
+#titulo-horario {
+  margin-top: 1.5rem;
+}
+
+.sin-resultados {
+  text-align: center;
+  color: var(--gris-500);
+  font-size: var(--texto-sm);
+  padding: 1.5rem 0;
+}
+
+/* ---------- Tarjeta de material ---------- */
+.material {
+  background: var(--blanco);
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  padding: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.material--agotado {
+  opacity: 0.65;
+}
+
+.material__fila {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.material__foto {
+  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+  border-radius: 8px;
+  background: var(--gris-100);
+  overflow: hidden;
+}
+
+.material__foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.material__info {
+  min-width: 0;
+}
+
+.material__nombre {
+  font-size: var(--texto-base);
+  font-weight: 700;
+}
+
+.material__modelo,
+.material__etiqueta {
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+}
+
+.material__etiqueta {
+  margin-top: 0.3rem;
+}
+
+.material__serie {
+  font-size: var(--texto-xs);
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.material__pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--gris-300);
+  font-size: var(--texto-xs);
+}
+
+.material__cantidad {
+  color: var(--gris-500);
+}
+
+/* Botón "Añadir al carrito" / "En tu carro" */
+.btn-carro {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  color: var(--ipn-vino);
+}
+
+.btn-carro__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--ipn-vino);
+  border-radius: 4px;
+  color: var(--blanco);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.btn-carro[aria-pressed="true"] .btn-carro__check {
+  background: var(--ipn-vino);
+}
+
+.btn-carro[aria-pressed="true"] .btn-carro__check::after {
+  content: "✓";
+}
+
+.btn-carro:disabled {
+  color: var(--gris-500);
+  cursor: not-allowed;
+}
+
+.btn-carro:disabled .btn-carro__check {
+  border-color: var(--gris-300);
+}
+
+/* ---------- Horarios ---------- */
+.horario {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 0.9rem;
+  margin-bottom: 0.6rem;
+  background: var(--blanco);
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  font-size: var(--texto-sm);
+  cursor: pointer;
+}
+
+.horario input {
+  accent-color: var(--ipn-vino);
+  width: 16px;
+  height: 16px;
+}
+
+.horario:has(input:checked) {
+  background: var(--ipn-vino-claro);
+  border-color: var(--ipn-vino);
+  color: var(--ipn-vino);
+  font-weight: 600;
+}
+
+/* ---------- Confirmar pedido ---------- */
+#btn-confirmar {
+  margin-top: 1.25rem;
+}
+
+.btn:disabled,
+.btn--primario:disabled:hover {
+  background: var(--gris-300);
+  border-color: var(--gris-300);
+  color: var(--gris-500);
+  cursor: not-allowed;
+}
+
+.resumen {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+}
+
+/* ---------- Modal de cuenta ---------- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(35, 35, 47, 0.55);
+}
+
+.modal.abierto {
+  display: flex;
+}
+
+.modal__caja {
+  width: 100%;
+  max-width: 360px;
+  padding: 1.25rem;
+  background: var(--blanco);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.modal__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9rem;
+}
+
+.modal__icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ipn-vino-claro);
+  color: var(--ipn-vino);
+}
+
+.modal__icono svg {
+  width: 20px;
+  height: 20px;
+}
+
+.modal__cerrar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--gris-500);
+}
+
+.modal__titulo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.modal__mensaje {
+  font-size: var(--texto-sm);
+  color: var(--gris-500);
+  margin-bottom: 1rem;
+}
+
+.modal__causa {
+  background: var(--ipn-vino-claro);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  margin-bottom: 1rem;
+  font-size: var(--texto-sm);
+}
+
+.modal__causa strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: var(--texto-xs);
+  color: var(--ipn-vino);
+}
+
+/* ---------- Pantallas anchas ---------- */
+@media (min-width: 768px) {
+  .portal {
+    margin-top: 1rem;
+  }
+}
+
+/* ==========================================================
+   FASE 3 - Perfil, préstamos e historial
+   ========================================================== */
+
+/* ---------- Tarjeta genérica (estado de cuenta en perfil) ---------- */
+.tarjeta {
+  background: var(--blanco);
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tarjeta__fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tarjeta__fila--separada {
+  margin-top: 0.6rem;
+}
+
+.tarjeta__titulo {
+  font-size: var(--texto-sm);
+  font-weight: 600;
+}
+
+.solo-lectura {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+}
+
+.solo-lectura svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* ---------- Datos personales ---------- */
+.seccion__titulo--ligero {
+  font-weight: 500;
+}
+
+.seccion__nota {
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+  margin: 0.2rem 0 1.1rem;
+}
+
+.campo__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.campo__nota {
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+}
+
+.input-con-icono .campo__icono {
+  position: absolute;
+  top: 50%;
+  right: 0.9rem;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  color: var(--gris-500);
+  pointer-events: none;
+}
+
+.campo input[readonly] {
+  background: var(--gris-100);
+  color: var(--gris-500);
+  cursor: not-allowed;
+}
+
+/* ---------- Modal de estado (perfil) ---------- */
+.modal__tarjeta {
+  display: grid;
+  gap: 0.6rem;
+  justify-items: start;
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  padding: 0.85rem 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.modal__tarjeta .tarjeta__fila {
+  width: 100%;
+}
+
+.modal__tarjeta .btn {
+  margin-top: 0.3rem;
+}
+
+/* ---------- Préstamo actual ---------- */
+.prestamo__encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9rem;
+}
+
+.prestamo__encabezado h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.prestamo {
+  background: var(--blanco);
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  padding: 1rem;
+}
+
+.prestamo__material {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+  padding-bottom: 0.9rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid var(--gris-300);
+}
+
+.prestamo__material:last-of-type {
+  margin-bottom: 0.9rem;
+}
+
+.prestamo__material .material__foto {
+  width: 72px;
+  height: 72px;
+}
+
+.prestamo__serie {
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+  margin-top: 0.2rem;
+  word-break: break-all;
+}
+
+.detalle dt {
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+  margin-top: 0.8rem;
+}
+
+.detalle dt:first-child {
+  margin-top: 0;
+}
+
+.detalle dd {
+  font-size: var(--texto-sm);
+  font-weight: 700;
+}
+
+.nota-info {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  background: var(--ipn-vino-claro);
+  color: var(--ipn-vino);
+  border-radius: var(--radio);
+  padding: 0.9rem 1rem;
+  margin-top: 1.25rem;
+  font-size: var(--texto-sm);
+}
+
+.nota-info svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+.vacio {
+  text-align: center;
+  color: var(--gris-500);
+  font-size: var(--texto-sm);
+  padding: 2.5rem 1rem;
+  background: var(--blanco);
+  border: 1px dashed var(--gris-300);
+  border-radius: var(--radio);
+}
+
+/* ---------- Historial ---------- */
+.historial__resumen {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.9rem;
+  font-size: var(--texto-sm);
+}
+
+.historial__resumen strong {
+  font-weight: 700;
+}
+
+.historial__orden {
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+}
+
+.registro {
+  background: var(--blanco);
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+}
+
+.registro__fila {
+  display: grid;
+  grid-template-columns: 38% 1fr;
+  border-top: 1px solid var(--gris-300);
+}
+
+.registro__fila:first-child {
+  border-top: none;
+}
+
+.registro dt {
+  background: var(--ipn-vino-claro);
+  color: var(--ipn-vino);
+  font-size: var(--texto-xs);
+  font-weight: 700;
+  padding: 0.75rem;
+}
+
+.registro dd {
+  font-size: var(--texto-xs);
+  padding: 0.75rem;
+  word-break: break-word;
+}
+
+.historial__pie {
+  text-align: center;
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+  margin-top: 1rem;
+}

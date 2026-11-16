@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi carro | IPN - Portal del alumno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/alumno.css">
+</head>
+<body>
+
+  <header class="header-ipn">
+    <div class="header-ipn__contenido">
+      <div class="header-ipn__logo">IPN</div>
+      <div class="header-ipn__texto">
+        <strong>Instituto Politécnico Nacional</strong>
+        <span>Portal académico</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navegación del alumno (para moverla abajo, agrega la clase nav-alumno--inferior) -->
+  <nav class="nav-alumno" aria-label="Navegación del alumno">
+    <ul class="nav-alumno__lista">
+      <li>
+        <a href="carrito.html" class="nav-alumno__enlace activo" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span>Mi carro</span>
+        </a>
+      </li>
+      <li>
+        <a href="prestamos.html?vista=historial" class="nav-alumno__enlace">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/><polyline points="12 7 12 12 15 14"/></svg>
+          <span>Historial</span>
+        </a>
+      </li>
+      <li>
+        <a href="prestamos.html" class="nav-alumno__enlace">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Mis préstamos</span>
+        </a>
+      </li>
+      <li>
+        <a href="perfil.html" class="nav-alumno__enlace">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>principal<br>Alumno</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="portal">
+    <div class="portal__barra">
+      <p class="portal__etiqueta">Portal del alumno</p>
+      <button type="button" id="btn-cerrar-sesion" class="btn-texto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        cerrar sesión
+      </button>
+    </div>
+
+    <h1 class="portal__titulo">Mi carro</h1>
+    <p class="portal__subtitulo">Busca materiales y elige un horario para recibir tu pedido.</p>
+
+    <!-- Tarjeta de estado de cuenta -->
+    <section class="estado-cuenta" aria-label="Estado de la cuenta">
+      <span class="estado-cuenta__titulo">Estado de la cuenta</span>
+      <span id="estado-cuenta" class="badge"></span>
+      </section>
+
+    <!-- Buscador -->
+    <div class="campo buscador">
+      <label for="buscador">Buscar por nombre o número de serie</label>
+      <div class="buscador__caja">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" id="buscador" placeholder="Nombre o número de serie" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- Lista de materiales -->
+    <section aria-labelledby="titulo-materiales">
+      <div class="seccion__encabezado">
+        <h2 id="titulo-materiales" class="seccion__titulo">Materiales</h2>
+        <span id="contador-carrito" class="seccion__contador">0 seleccionados</span>
+      </div>
+      <div id="lista-materiales"></div>
+      <p id="sin-resultados" class="sin-resultados" hidden>No se encontraron materiales con esa búsqueda.</p>
+    </section>
+
+    <!-- Horario -->
+    <section aria-labelledby="titulo-horario">
+      <h2 id="titulo-horario" class="seccion__titulo">Horario de entrega</h2>
+      <p id="fecha-entrega" class="seccion__fecha"></p>
+      <div id="lista-horarios" role="radiogroup" aria-labelledby="titulo-horario"></div>
+    </section>
+
+    <button type="button" id="btn-confirmar" class="btn btn--primario">confirmar pedido</button>
+    <p id="resumen-pedido" class="resumen"></p>
+  </main>
+
+  <footer class="footer-ipn">
+    <p>Instituto Politécnico Nacional</p>
+    <p>Portal académico · Acceso web</p>
+  </footer>
+
+  <!-- Modal de cuenta suspendida / bloqueada -->
+  <div id="modal-cuenta" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="modal__caja">
+      <div class="modal__cabecera">
+        <span id="modal-icono" class="modal__icono"></span>
+        <button type="button" id="modal-cerrar" class="modal__cerrar" aria-label="Cerrar">&times;</button>
+      </div>
+      <h2 id="modal-titulo" class="modal__titulo"></h2>
+      <p id="modal-mensaje" class="modal__mensaje"></p>
+      <div id="modal-causa" class="modal__causa" hidden>
+        <strong>Causa anotada por el administrador</strong>
+        <p id="modal-causa-texto"></p>
+      </div>
+      <button type="button" id="modal-entendido" class="btn btn--primario">entendido</button>
+    </div>
+  </div>
+
+  <script src="../js/api/mockData.js"></script>
+  <script src="../js/api/apiClient.js"></script>
+  <script src="../js/alumno.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de alumnos | IPN - Portal académico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <header class="header-ipn">
+    <div class="header-ipn__contenido">
+      <div class="header-ipn__logo">IPN</div>
+      <div class="header-ipn__texto">
+        <strong>Instituto Politécnico Nacional</strong>
+        <span>Portal académico</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth auth--registro">
+    <a href="index.html" class="auth__volver">← Inicio de sesión</a>
+
+    <h1 class="auth__titulo">Registro de alumnos</h1>
+    <p class="auth__subtitulo">Crea tu cuenta con tus datos académicos.</p>
+    <p class="auth__nota">Todos los campos son obligatorios.</p>
+
+    <form id="form-registro" novalidate>
+      <div class="campo">
+        <label for="apellido-paterno">Apellido paterno</label>
+        <input type="text" id="apellido-paterno" name="apellidoPaterno" autocomplete="family-name">
+        <span class="campo__error" id="error-apellido-paterno"></span>
+      </div>
+
+      <div class="campo">
+        <label for="apellido-materno">Apellido materno</label>
+        <input type="text" id="apellido-materno" name="apellidoMaterno">
+        <span class="campo__error" id="error-apellido-materno"></span>
+      </div>
+
+      <div class="campo">
+        <label for="nombres">Nombre/s</label>
+        <input type="text" id="nombres" name="nombres" autocomplete="given-name">
+        <span class="campo__error" id="error-nombres"></span>
+      </div>
+
+      <div class="campo">
+        <label for="boleta">Número de boleta</label>
+        <input type="text" id="boleta" name="boleta" inputmode="numeric" maxlength="10">
+        <span class="campo__error" id="error-boleta"></span>
+      </div>
+
+      <div class="campo">
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" name="correo" placeholder="usuario@alumno.ipn.mx" autocomplete="email">
+        <span class="campo__error" id="error-correo"></span>
+      </div>
+
+      <div class="campo">
+        <label for="contrasena">Contraseña</label>
+        <div class="input-con-icono">
+          <input type="password" id="contrasena" name="contrasena" autocomplete="new-password">
+          <button type="button" class="btn-ojo" data-toggle-password="contrasena" aria-label="Mostrar u ocultar contraseña"></button>
+        </div>
+        <span class="campo__error" id="error-contrasena"></span>
+      </div>
+
+      <div class="auth__acciones">
+        <button type="submit" class="btn btn--primario">crear cuenta</button>
+        <a href="index.html" class="btn btn--secundario">cancelar</a>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer-ipn">
+    <p>Instituto Politécnico Nacional</p>
+    <p>Portal académico · Acceso web</p>
+  </footer>
+
+  <script src="js/validaciones.js"></script>
+  <script src="js/api/mockData.js"></script>
+  <script src="js/api/apiClient.js"></script>
+  <script src="js/registro.js"></script>
+</body>
+</html>

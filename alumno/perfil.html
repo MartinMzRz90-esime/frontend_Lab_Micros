@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi información | IPN - Portal del alumno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/alumno.css">
+</head>
+<body>
+
+  <header class="header-ipn">
+    <div class="header-ipn__contenido">
+      <div class="header-ipn__logo">IPN</div>
+      <div class="header-ipn__texto">
+        <strong>Instituto Politécnico Nacional</strong>
+        <span>Portal académico</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-alumno" aria-label="Navegación del alumno">
+    <ul class="nav-alumno__lista">
+      <li>
+        <a href="carrito.html" class="nav-alumno__enlace">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span>Mi carro</span>
+        </a>
+      </li>
+      <li>
+        <a href="prestamos.html?vista=historial" class="nav-alumno__enlace">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/><polyline points="12 7 12 12 15 14"/></svg>
+          <span>Historial</span>
+        </a>
+      </li>
+      <li>
+        <a href="prestamos.html" class="nav-alumno__enlace">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Mis préstamos</span>
+        </a>
+      </li>
+      <li>
+        <a href="perfil.html" class="nav-alumno__enlace activo" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>principal<br>Alumno</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="portal">
+    <div class="portal__barra">
+      <p class="portal__etiqueta">Portal del alumno</p>
+      <button type="button" id="btn-cerrar-sesion" class="btn-texto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        cerrar sesión
+      </button>
+    </div>
+
+    <h1 class="portal__titulo">Mi información</h1>
+    <p class="portal__subtitulo">Consulta tu estado y mantén actualizados tus datos de contacto.</p>
+
+    <!-- Tarjeta de estado de cuenta (abre el modal informativo) -->
+    <section class="tarjeta" aria-label="Estado de la cuenta">
+      <div class="tarjeta__fila">
+        <span class="tarjeta__titulo">Estado de la cuenta</span>
+        <span class="solo-lectura">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Solo lectura
+        </span>
+      </div>
+      <div class="tarjeta__fila tarjeta__fila--separada">
+        <span id="estado-cuenta" class="badge"></span>
+        <button type="button" id="btn-estado-cuenta" class="btn-texto">ver estado de la cuenta</button>
+      </div>
+    </section>
+
+    <h2 class="seccion__titulo seccion__titulo--ligero">Datos personales</h2>
+    <p class="seccion__nota">Puedes editar tu nombre y correo. Los campos con candado son de solo lectura.</p>
+
+    <form id="form-perfil" novalidate>
+      <div class="campo">
+        <label for="nombre">Nombre con apellidos</label>
+        <div class="input-con-icono">
+          <input type="text" id="nombre" name="nombre" autocomplete="name">
+          <svg class="campo__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+        </div>
+        <span class="campo__error" id="error-nombre"></span>
+      </div>
+
+      <div class="campo">
+        <div class="campo__cabecera">
+          <label for="boleta">Número de boleta</label>
+          <span class="campo__nota">Solo lectura</span>
+        </div>
+        <div class="input-con-icono">
+          <input type="text" id="boleta" name="boleta" readonly>
+          <svg class="campo__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="correo">Correo</label>
+        <div class="input-con-icono">
+          <input type="email" id="correo" name="correo" autocomplete="email">
+          <svg class="campo__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+        </div>
+        <span class="campo__error" id="error-correo"></span>
+      </div>
+
+      <button type="submit" class="btn btn--primario">✓ guardar cambios</button>
+    </form>
+  </main>
+
+  <footer class="footer-ipn">
+    <p>Instituto Politécnico Nacional</p>
+    <p>Portal académico · Acceso web</p>
+  </footer>
+
+  <!-- Modal informativo: estado de la cuenta -->
+  <div id="modal-estado" class="modal" role="dialog" aria-modal="true" aria-labelledby="me-titulo">
+    <div class="modal__caja">
+      <div class="modal__cabecera">
+        <span id="me-icono" class="modal__icono"></span>
+        <button type="button" id="me-cerrar" class="modal__cerrar" aria-label="Cerrar">&times;</button>
+      </div>
+      <h2 id="me-titulo" class="modal__titulo"></h2>
+      <p id="me-mensaje" class="modal__mensaje"></p>
+
+      <div class="modal__tarjeta">
+        <div class="tarjeta__fila">
+          <span class="tarjeta__titulo">Estado de la cuenta</span>
+          <span class="solo-lectura">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Solo lectura
+          </span>
+        </div>
+        <span id="me-badge" class="badge"></span>
+        <button type="button" id="me-btn-razon" class="btn btn--secundario" hidden>razón de la suspensión o bloqueo</button>
+      </div>
+
+      <div id="me-causa" class="modal__causa" hidden>
+        <strong>Motivo registrado</strong>
+        <p id="me-causa-texto"></p>
+      </div>
+
+      <button type="button" id="me-entendido" class="btn btn--primario">entendido</button>
+    </div>
+  </div>
+
+  <script src="../js/validaciones.js"></script>
+  <script src="../js/api/mockData.js"></script>
+  <script src="../js/api/apiClient.js"></script>
+  <script src="../js/alumno.js"></script>
+</html>

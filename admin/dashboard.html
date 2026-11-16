@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de administración | IPN - Portal académico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin" data-pagina="dashboard">
+
+  <header class="header-ipn">
+    <div class="header-ipn__contenido">
+      <a href="dashboard.html" class="header-ipn__logo" aria-label="Ir al panel">IPN</a>
+      <div class="header-ipn__texto">
+        <strong>Instituto Politécnico Nacional</strong>
+        <span>Portal académico</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- admin.js dibuja aquí el menú de navegación -->
+  <nav id="nav-admin" class="nav-admin" aria-label="Navegación del administrador"></nav>
+
+  <main class="admin-main">
+    <div class="portal__barra">
+      <p class="portal__etiqueta">Administrador</p>
+      <button type="button" id="btn-cerrar-sesion" class="btn-texto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        cerrar sesión
+      </button>
+    </div>
+
+    <h1 class="portal__titulo">Panel de administración</h1>
+    <p id="admin-sesion" class="portal__subtitulo"></p>
+
+    <section class="stats" aria-label="Resumen">
+      <a href="prestamos.html" class="stat">
+        <span id="stat-pendientes" class="stat__valor">0</span>
+        <span class="stat__etiqueta">Solicitudes pendientes</span>
+        <span class="stat__accion">Ir a préstamos →</span>
+      </a>
+      <a href="devoluciones.html" class="stat">
+        <span id="stat-por-devolver" class="stat__valor">0</span>
+        <span class="stat__etiqueta">Piezas por devolver</span>
+        <span class="stat__accion">Ir a devoluciones →</span>
+      </a>
+      <a href="alumnos.html" class="stat">
+        <span id="stat-sancionados" class="stat__valor">0</span>
+        <span class="stat__etiqueta">Alumnos con restricciones</span>
+        <span class="stat__accion">Ir a alumnos →</span>
+      </a>
+      <a href="inventario.html" class="stat">
+        <span id="stat-disponibles" class="stat__valor">0</span>
+        <span class="stat__etiqueta">Materiales disponibles</span>
+        <span class="stat__accion">Ir a inventario →</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer-ipn">
+    <p>Instituto Politécnico Nacional</p>
+    <p>Portal académico · Acceso web</p>
+  </footer>
+
+  <script src="../js/api/mockData.js"></script>
+  <script src="../js/api/apiClient.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

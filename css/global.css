@@ -1,0 +1,226 @@
+/* ==========================================================
+   global.css - Variables, reset, tipografía y botones base
+   Sistema de préstamo de laboratorio de microprocesadores
+   ========================================================== */
+
+:root {
+  /* Colores IPN */
+  --ipn-vino: #780040;
+  --ipn-vino-oscuro: #5a0030;
+  --ipn-vino-claro: #faf0f4;
+  --ipn-vino-borde: #e9c6d6;
+
+  /* Grises */
+  --gris-900: #23232f;
+  --gris-700: #4b4b5a;
+  --gris-500: #6f6f80;
+  --gris-300: #d9d9e0;
+  --gris-100: #f4f5f7;
+  --blanco: #ffffff;
+
+  /* Estados */
+  --verde: #2e7d4f;
+  --verde-claro: #e6f4ec;
+  --ambar: #b26a00;
+  --ambar-claro: #fff1d6;
+  --rojo: #b3261e;
+  --rojo-claro: #fdecea;
+
+  /* Tipografía */
+  --fuente: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --texto-xs: 0.75rem;
+  --texto-sm: 0.875rem;
+  --texto-base: 1rem;
+  --texto-xl: 1.75rem;
+
+  /* Layout */
+  --radio: 10px;
+  --sombra: 0 2px 8px rgba(35, 35, 47, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--fuente);
+  font-size: var(--texto-base);
+  color: var(--gris-900);
+  background: var(--gris-100);
+  line-height: 1.45;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--ipn-vino);
+}
+
+/* ---------- Encabezado institucional ---------- */
+.header-ipn {
+  background: var(--ipn-vino);
+  color: var(--blanco);
+}
+
+.header-ipn__contenido {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-ipn__logo {
+  font-size: 1.9rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  padding-right: 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.header-ipn__texto strong {
+  display: block;
+  font-size: var(--texto-sm);
+  font-weight: 600;
+}
+
+.header-ipn__texto span {
+  font-size: var(--texto-xs);
+  opacity: 0.85;
+}
+
+/* ---------- Pie de página ---------- */
+.footer-ipn {
+  margin-top: auto;
+  text-align: center;
+  padding: 1.25rem;
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+  border-top: 1px solid var(--gris-300);
+  background: var(--gris-100);
+}
+
+.footer-ipn p:first-child {
+  font-size: var(--texto-sm);
+}
+
+/* ---------- Formularios ---------- */
+.campo {
+  margin-bottom: 1.1rem;
+}
+
+.campo label {
+  display: block;
+  font-size: var(--texto-sm);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.campo input {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  font-family: inherit;
+  font-size: var(--texto-base);
+  color: var(--gris-900);
+  background: var(--blanco);
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.campo input::placeholder {
+  color: var(--gris-500);
+}
+
+.campo input:focus {
+  border-color: var(--ipn-vino);
+  box-shadow: 0 0 0 3px rgba(120, 0, 64, 0.15);
+}
+
+.campo input.invalido {
+  border-color: var(--rojo);
+  background: var(--rojo-claro);
+}
+
+.campo__error {
+  display: none;
+  margin-top: 0.3rem;
+  font-size: var(--texto-xs);
+  color: var(--rojo);
+}
+
+.campo__error.visible {
+  display: block;
+}
+
+.input-con-icono {
+  position: relative;
+}
+
+.input-con-icono input {
+  padding-right: 2.8rem;
+}
+
+.btn-ojo {
+  position: absolute;
+  top: 50%;
+  right: 0.6rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gris-500);
+  display: flex;
+  padding: 0.3rem;
+}
+
+.btn-ojo svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Botones base ---------- */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: var(--texto-sm);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn--primario {
+  background: var(--ipn-vino);
+  color: var(--blanco);
+  border: 1px solid var(--ipn-vino);
+}
+
+.btn--primario:hover {
+  background: var(--ipn-vino-oscuro);
+}
+
+.btn--secundario {
+  background: var(--blanco);
+  color: var(--ipn-vino);
+  border: 1px solid var(--ipn-vino);
+}
+
+.btn--secundario:hover {
+  background: var(--ipn-vino-claro);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión | IPN - Portal académico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <header class="header-ipn">
+    <div class="header-ipn__contenido">
+      <div class="header-ipn__logo">IPN</div>
+      <div class="header-ipn__texto">
+        <strong>Instituto Politécnico Nacional</strong>
+        <span>Portal académico</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth">
+    <p class="auth__etiqueta">Comunidad politécnica</p>
+    <h1 class="auth__titulo">Bienvenido al portal</h1>
+
+    <div class="aviso" role="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      <span>Completa solo el identificador de tu rol: boleta si eres alumno o folio si eres administrador.</span>
+    </div>
+
+    <form id="form-login" novalidate>
+      <div class="campo">
+        <label for="boleta">Boleta · Alumnos</label>
+        <input type="text" id="boleta" name="boleta" inputmode="numeric" maxlength="10"
+               placeholder="Ingresa tu número de boleta" autocomplete="username">
+        <span class="campo__error" id="error-boleta"></span>
+      </div>
+
+      <div class="campo">
+        <label for="folio">Folio · Administradores</label>
+        <input type="text" id="folio" name="folio" inputmode="numeric"
+               placeholder="Ingresa tu folio">
+        <span class="campo__error" id="error-folio"></span>
+      </div>
+
+      <div class="campo">
+        <label for="contrasena">Contraseña</label>
+        <div class="input-con-icono">
+          <input type="password" id="contrasena" name="contrasena"
+                 placeholder="Ingresa tu contraseña" autocomplete="current-password">
+          <button type="button" class="btn-ojo" data-toggle-password="contrasena" aria-label="Mostrar u ocultar contraseña"></button>
+        </div>
+        <span class="campo__error" id="error-contrasena"></span>
+      </div>
+
+      <button type="submit" class="btn btn--primario">→ iniciar sesión</button>
+    </form>
+
+    <div class="auth__registro">
+      <p>¿Eres alumno y aún no tienes cuenta?</p>
+      <a href="registro.html">Regístrate aquí →</a>
+    </div>
+  </main>
+
+  <footer class="footer-ipn">
+    <p>Instituto Politécnico Nacional</p>
+    <p>Portal académico · Acceso web</p>
+  </footer>
+
+  <script src="js/validaciones.js"></script>
+  <script src="js/api/mockData.js"></script>
+  <script src="js/api/apiClient.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

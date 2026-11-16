@@ -1,0 +1,103 @@
+/* ==========================================================
+   login.css - Estilos de las pantallas de acceso y registro
+   ========================================================== */
+
+.auth {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 2rem;
+  background: var(--blanco);
+  flex: 1;
+}
+
+.auth__etiqueta {
+  font-size: var(--texto-xs);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ipn-vino);
+  margin-bottom: 0.4rem;
+}
+
+.auth__titulo {
+  font-size: var(--texto-xl);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.auth__subtitulo {
+  color: var(--gris-500);
+  margin-bottom: 0.3rem;
+}
+
+.auth__nota {
+  font-size: var(--texto-xs);
+  color: var(--gris-500);
+  margin-bottom: 1.25rem;
+}
+
+.auth__volver {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: var(--texto-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth__volver:hover {
+  text-decoration: underline;
+}
+
+/* Aviso informativo del login */
+.aviso {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  background: var(--ipn-vino-claro);
+  color: var(--ipn-vino);
+  border-radius: var(--radio);
+  padding: 0.9rem 1rem;
+  margin: 1.25rem 0 1.5rem;
+  font-size: var(--texto-sm);
+}
+
+.aviso svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+.auth__acciones {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.auth__registro {
+  text-align: center;
+  margin-top: 1.75rem;
+  font-size: var(--texto-sm);
+  color: var(--gris-500);
+}
+
+.auth__registro a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Registro en pantallas anchas: formulario centrado */
+@media (min-width: 768px) {
+  .auth--registro {
+    max-width: 560px;
+  }
+
+  .auth {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+  }
+}
